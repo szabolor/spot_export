@@ -450,6 +450,12 @@ def export_web(in_gallery, out_gallery, content_path, convert_log,
           "parent": uuid_store[album_rel_parent if album_rel_parent else curdir],
         }
 
+      # generate conversion lists
+      generate_photo_convert_list(
+        dir_name, file_list, out_gallery, gallery_name, convert_log, content_params
+      )
+      
+      # END folder == 'web'
   # END os.walk
 
   structure_to_content(
@@ -457,15 +463,6 @@ def export_web(in_gallery, out_gallery, content_path, convert_log,
     content_params=content_params,
     structure=structure
   )
-
-  #print("returned gallery_base_path: %s" % gallery_base_path)
-
-  # generate conversion lists
-  # generate_photo_convert_list(
-  #   dir_name, file_list, out_gallery, gallery_base_path, convert_log, content_params
-  # )
-
-      
 
   print("end...")
 
